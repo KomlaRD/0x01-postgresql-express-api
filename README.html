@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-0.9.250">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>readme</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+<script src="README_files/libs/clipboard/clipboard.min.js"></script>
+<script src="README_files/libs/quarto-html/quarto.js"></script>
+<script src="README_files/libs/quarto-html/popper.min.js"></script>
+<script src="README_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="README_files/libs/quarto-html/anchor.min.js"></script>
+<link href="README_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link id="quarto-text-highlighting-styles" href="README_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
+<script src="README_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="README_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="README_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
+<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
+  
+</div>
+
+<main class="content" id="quarto-document-content">
+
+
+
+<section id="storefront-backend-project" class="level1">
+<h1>Storefront Backend Project</h1>
+<section id="getting-started" class="level2">
+<h2 class="anchored" data-anchor-id="getting-started">Getting Started</h2>
+<p>This repo contains a basic Node and Express app to get you started in constructing an API. To get started, clone this repo and run <code>yarn</code> in your terminal at the project root.</p>
+</section>
+<section id="required-technologies" class="level2">
+<h2 class="anchored" data-anchor-id="required-technologies">Required Technologies</h2>
+<p>Your application must make use of the following libraries: - Postgres for the database - Node/Express for the application logic - dotenv from npm for managing environment variables - db-migrate from npm for migrations - jsonwebtoken from npm for working with JWTs - jasmine from npm for testing</p>
+</section>
+<section id="steps-to-completion" class="level2">
+<h2 class="anchored" data-anchor-id="steps-to-completion">Steps to Completion</h2>
+<section id="plan-to-meet-requirements" class="level3">
+<h3 class="anchored" data-anchor-id="plan-to-meet-requirements">1. Plan to Meet Requirements</h3>
+<p>In this repo there is a <code>REQUIREMENTS.md</code> document which outlines what this API needs to supply for the frontend, as well as the agreed upon data shapes to be passed between front and backend. This is much like a document you might come across in real life when building or extending an API.</p>
+<p>Your first task is to read the requirements and update the document with the following: - Determine the RESTful route for each endpoint listed. Add the RESTful route and HTTP verb to the document so that the frontend developer can begin to build their fetch requests.<br>
+<strong>Example</strong>: A SHOW route: ‘blogs/:id’ [GET]</p>
+<ul>
+<li>Design the Postgres database tables based off the data shape requirements. Add to the requirements document the database tables and columns being sure to mark foreign keys.<br>
+<strong>Example</strong>: You can format this however you like but these types of information should be provided Table: Books (id:varchar, title:varchar, author:varchar, published_year:varchar, publisher_id:string[foreign key to publishers table], pages:number)</li>
+</ul>
+<p><strong>NOTE</strong> It is important to remember that there might not be a one to one ratio between data shapes and database tables. Data shapes only outline the structure of objects being passed between frontend and API, the database may need multiple tables to store a single shape.</p>
+</section>
+<section id="db-creation-and-migrations" class="level3">
+<h3 class="anchored" data-anchor-id="db-creation-and-migrations">2. DB Creation and Migrations</h3>
+<p>Now that you have the structure of the databse outlined, it is time to create the database and migrations. Add the npm packages dotenv and db-migrate that we used in the course and setup your Postgres database. If you get stuck, you can always revisit the database lesson for a reminder.</p>
+<p>You must also ensure that any sensitive information is hashed with bcrypt. If any passwords are found in plain text in your application it will not pass.</p>
+</section>
+<section id="models" class="level3">
+<h3 class="anchored" data-anchor-id="models">3. Models</h3>
+<p>Create the models for each database table. The methods in each model should map to the endpoints in <code>REQUIREMENTS.md</code>. Remember that these models should all have test suites and mocks.</p>
+</section>
+<section id="express-handlers" class="level3">
+<h3 class="anchored" data-anchor-id="express-handlers">4. Express Handlers</h3>
+<p>Set up the Express handlers to route incoming requests to the correct model method. Make sure that the endpoints you create match up with the enpoints listed in <code>REQUIREMENTS.md</code>. Endpoints must have tests and be CORS enabled.</p>
+</section>
+<section id="jwts" class="level3">
+<h3 class="anchored" data-anchor-id="jwts">5. JWTs</h3>
+<p>Add JWT functionality as shown in the course. Make sure that JWTs are required for the routes listed in <code>REQUIUREMENTS.md</code>.</p>
+</section>
+<section id="qa-and-readme.md" class="level3">
+<h3 class="anchored" data-anchor-id="qa-and-readme.md">6. QA and <code>README.md</code></h3>
+<p>Before submitting, make sure that your project is complete with a <code>README.md</code>. Your <code>README.md</code> must include instructions for setting up and running your project including how you setup, run, and connect to your database.</p>
+<p>Before submitting your project, spin it up and test each endpoint. If each one responds with data that matches the data shapes from the <code>REQUIREMENTS.md</code>, it is ready for submission!</p>
+</section>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    setTimeout(function() {
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
