@@ -2,3 +2,4 @@ node_modules
 README_files
 REQUIREMENTS_files
 
+.env
