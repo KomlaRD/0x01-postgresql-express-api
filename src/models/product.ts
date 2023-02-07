@@ -33,8 +33,8 @@ export class ProductStore {
     try {
       // Connect to database
       const conn = await client.connect();
-      // SQL query to create a new produt
-      const sql = 'SELECT * FROM produt WHERE id = ' + id;
+      // SQL query to show a particular product
+      const sql = 'SELECT * FROM products WHERE id = ' + id;
       // Run query on the database
       const result = await conn.query(sql, [id]);
       const product = result.rows[0];
@@ -52,7 +52,7 @@ export class ProductStore {
     try {
       // Connect to database
       const conn = await client.connect();
-      // SQL query to create a new produt
+      // SQL query to create a new product
       const sql =
         'INSERT INTO products(name, price, category) VALUES("book", 1000, "stationery") RETURNING *';
       // Run query on the database
