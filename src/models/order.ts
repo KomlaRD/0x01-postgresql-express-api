@@ -16,7 +16,7 @@ export class OrderStore {
       // Connect to database
       const conn = await client.connect();
       // SQL query to show an order
-      const sql = "SELECT * FROM orders WHERE id = " + id;
+      const sql = "SELECT * FROM orders WHERE user_id = " + id;
       // Run query on the database
       const result = await conn.query(sql, [id]);
       const order = result.rows[0];
