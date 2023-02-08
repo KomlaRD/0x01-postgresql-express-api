@@ -36,7 +36,7 @@ const create = async (req: express.Request, res: express.Response) => {
 const products_route = (app: express.Application) => {
     app.get('/products', index);
     app.get('/products/:id', show);
-    app.post('/products', create);
+    app.post('/products/:id', create);
 };
 
 export default products_route;
