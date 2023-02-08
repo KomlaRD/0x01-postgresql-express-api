@@ -3,8 +3,8 @@ import client from "../database";
 // Create a type for the rows in the users table
 export type User = {
   user_id: number;
-  firstName: string;
-  lastName: string;
+  first_name: string;
+  last_name: string;
   password: string;
 };
 
@@ -54,9 +54,9 @@ export class UserStore {
       const conn = await client.connect();
       // SQL query to create a new user
       const sql =
-        'INSERT INTO users(firstName, lastName, password) VALUES("Eric", "Anku, "silenthour") RETURNING *';
+        'INSERT INTO users(firstName, lastName, password) VALUES("Eric", "Anku", "silenthour") RETURNING *';
       // Run query on the database
-      const result = await conn.query(sql, [u.firstName, u.lastName, u.password]);
+      const result = await conn.query(sql, [u.first_name, u.last_name, u.password]);
       const user = result.rows[0];
       // Close the connection
       conn.release();
