@@ -2,7 +2,7 @@ import client from "../database";
 
 // Create a type for the rows in the products table
 export type Product = {
-    product_id: number;
+    products_id: number;
     name: string;
     price: number;
     category: string;
@@ -29,14 +29,14 @@ export class ProductStore {
   }
 
   // Model method to show a product
-  async show(id: string): Promise<Product> {
+  async show(products_id: string): Promise<Product> {
     try {
       // Connect to database
       const conn = await client.connect();
       // SQL query to show a particular product
-      const sql = 'SELECT * FROM products WHERE id = ' + id;
+      const sql = 'SELECT * FROM products WHERE products_id = products_id';
       // Run query on the database
-      const result = await conn.query(sql, [id]);
+      const result = await conn.query(sql, []);
       const product = result.rows[0];
       // Close the connection
       conn.release();
@@ -54,9 +54,9 @@ export class ProductStore {
       const conn = await client.connect();
       // SQL query to create a new product
       const sql =
-        'INSERT INTO products(name, price, category) VALUES("book", 1000, "stationery") RETURNING *';
+        `INSERT INTO products (products_id, name, price, category) VALUES (1, 'book', 1000, 'stationery') RETURNING *`;
       // Run query on the database
-      const result = await conn.query(sql, [p.name, p.price, p.category]);
+      const result = await conn.query(sql, []);
       const product = result.rows[0];
       // Close the connection
       conn.release();

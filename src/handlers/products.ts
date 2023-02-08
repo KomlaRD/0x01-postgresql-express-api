@@ -11,7 +11,7 @@ const index = async (req: express.Request, res: express.Response) => {
 
 // Show route
 const show = async (req: express.Request, res: express.Response) => {
-    const products = await store.show(req.params.id);
+    const products = await store.show(req.params.products_id);
     res.json(products);
 };
 
@@ -19,7 +19,7 @@ const show = async (req: express.Request, res: express.Response) => {
 const create = async (req: express.Request, res: express.Response) => {
     try {
         const products: Product = {
-            product_id: parseInt(req.params.id as string),
+            products_id: parseInt(req.params.id as string),
             name: req.body.name,
             price: req.body.price,
             category: req.body.category
@@ -35,8 +35,8 @@ const create = async (req: express.Request, res: express.Response) => {
 // Create product route function
 const products_route = (app: express.Application) => {
     app.get('/products', index);
-    app.get('/products/:id', show);
-    app.post('/products/:id', create);
+    app.get('/products/:products-id', show);
+    app.post('/products/:products-id', create);
 };
 
 export default products_route;
