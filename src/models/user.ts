@@ -34,9 +34,9 @@ export class UserStore {
       // Connect to database
       const conn = await client.connect();
       // SQL query to show a user
-      const sql = "SELECT * FROM users WHERE id = " + id;
+      const sql = 'SELECT * FROM users WHERE user_id = ' + id;
       // Run query on the database
-      const result = await conn.query(sql, [id]);
+      const result = await conn.query(sql, []);
       const user = result.rows[0];
       // Close the connection
       conn.release();
@@ -54,9 +54,9 @@ export class UserStore {
       const conn = await client.connect();
       // SQL query to create a new user
       const sql =
-        'INSERT INTO users(firstName, lastName, password) VALUES("Eric", "Anku", "silenthour") RETURNING *';
+        `INSERT INTO users(first_name, last_name, password) VALUES ('Eric', 'Anku', 'silenthour') RETURNING *`;
       // Run query on the database
-      const result = await conn.query(sql, [u.first_name, u.last_name, u.password]);
+      const result = await conn.query(sql, []);
       const user = result.rows[0];
       // Close the connection
       conn.release();

@@ -20,10 +20,10 @@ const create = async (req: express.Request, res: express.Response) => {
     try {
         const user: User = {
             user_id: parseInt(req.params.id as string),
-            first_name: req.body.firstName,
-            last_name: req.body.lastName,
+            first_name: req.body.first_name,
+            last_name: req.body.last_name,
             password: req.body.password
-        }
+    }
         const newUser = await store.create(user);
         res.json(newUser);
     } catch (err) {
@@ -36,7 +36,7 @@ const create = async (req: express.Request, res: express.Response) => {
 const user_routes = (app: Application) => {
     app.get('/users', index);
     app.get('/users/:id', show);
-    app.post('/users/:id', create);
+    app.post('/users', create);
 }
 
 export default user_routes;
