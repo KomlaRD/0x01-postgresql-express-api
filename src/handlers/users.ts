@@ -20,8 +20,8 @@ const create = async (req: express.Request, res: express.Response) => {
     try {
         const user: User = {
             user_id: parseInt(req.params.id as string),
-            firstName: req.body.firstName,
-            lastName: req.body.lastName,
+            first_name: req.body.firstName,
+            last_name: req.body.lastName,
             password: req.body.password
         }
         const newUser = await store.create(user);
@@ -36,7 +36,7 @@ const create = async (req: express.Request, res: express.Response) => {
 const user_routes = (app: Application) => {
     app.get('/users', index);
     app.get('/users/:id', show);
-    app.post('/users', create);
+    app.post('/users/:id', create);
 }
 
 export default user_routes;
