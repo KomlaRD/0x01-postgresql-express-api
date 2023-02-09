@@ -1,5 +1,7 @@
 import express, {Application, Request, Response} from "express";
 import { User, UserStore } from "../models/user";
+import jwt, { verify } from "jsonwebtoken";
+import verifyAuthToken from "../middleware/autheticate";
 
 const store = new UserStore();
 
@@ -17,7 +19,7 @@ const show = async (req: express.Request, res: express.Response) => {
 
 // Create route
 const create = async (req: express.Request, res: express.Response) => {
-    try {
+
         const user: User = {
             user_id: parseInt(req.params.id as string),
             first_name: req.body.first_name,
@@ -25,8 +27,10 @@ const create = async (req: express.Request, res: express.Response) => {
             username: req.body.username,
             password: req.body.password
     }
+    try {
         const newUser = await store.create(user);
-        res.json(newUser);
+        var token = jwt.sign( { user: newUser}, process.env.TOKEN_SECRET!)
+        res.json(token);
     } catch (err) {
         res.json(400);
         throw new Error (`The user could not be created: ${err}`);
@@ -35,9 +39,9 @@ const create = async (req: express.Request, res: express.Response) => {
 
 // Create user route function
 const user_routes = (app: Application) => {
-    app.get('/users', index);
-    app.get('/users/:id', show);
-    app.post('/users', create);
+    app.get('/users', verifyAuthToken, index);
+    app.get('/users/:id', verifyAuthToken, show);
+    app.post('/users', verifyAuthToken, create);
 }
 
 export default user_routes;
