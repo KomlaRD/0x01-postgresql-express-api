@@ -3,8 +3,8 @@ import client from "../database";
 // Create a type for the rows in the orders table
 export type Order = {
   order_id: number;
-  product_id: number;
-  user_id: string;
+  products_id: number;
+  user_id: number;
   status: string;
 };
 
@@ -16,9 +16,9 @@ export class OrderStore {
       // Connect to database
       const conn = await client.connect();
       // SQL query to show an order
-      const sql = "SELECT * FROM orders WHERE user_id = " + id;
+      const sql = 'SELECT * FROM orders WHERE user_id = user_id';
       // Run query on the database
-      const result = await conn.query(sql, [id]);
+      const result = await conn.query(sql, []);
       const order = result.rows[0];
       // Close the connection
       conn.release();
