@@ -22,6 +22,7 @@ const create = async (req: express.Request, res: express.Response) => {
             user_id: parseInt(req.params.id as string),
             first_name: req.body.first_name,
             last_name: req.body.last_name,
+            username: req.body.username,
             password: req.body.password
     }
         const newUser = await store.create(user);
