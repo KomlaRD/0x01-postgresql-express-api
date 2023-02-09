@@ -1,10 +1,16 @@
 import client from "../database";
+import bcrypt from "bcrypt";
+import dotenv from "dotenv";
+
+// Initialise environment variables
+dotenv.config();
 
 // Create a type for the rows in the users table
 export type User = {
   user_id: number;
   first_name: string;
   last_name: string;
+  username: string,
   password: string;
 };
 
@@ -54,7 +60,10 @@ export class UserStore {
       const conn = await client.connect();
       // SQL query to create a new user
       const sql =
-        `INSERT INTO users(first_name, last_name, password) VALUES ('Eric', 'Anku', 'silenthour') RETURNING *`;
+        `INSERT INTO users(first_name, last_name, username, password) VALUES ('Eric', 'Anku', 'erico', 'silenthour') RETURNING *`;
+      const hash = bcrypt.hashSync(
+        u.password + BCRYPT_PASSWORD, parseInt(saltRounds)
+      )
       // Run query on the database
       const result = await conn.query(sql, []);
       const user = result.rows[0];
