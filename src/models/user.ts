@@ -5,6 +5,11 @@ import dotenv from "dotenv";
 // Initialise environment variables
 dotenv.config();
 
+const  {
+  BCRYPT_PASSWORD,
+  SALT_ROUNDS,
+} = process.env
+
 // Create a type for the rows in the users table
 export type User = {
   user_id: number;
@@ -40,7 +45,7 @@ export class UserStore {
       // Connect to database
       const conn = await client.connect();
       // SQL query to show a user
-      const sql = 'SELECT * FROM users WHERE user_id = ' + id;
+      const sql = "SELECT * FROM users WHERE user_id = " + id;
       // Run query on the database
       const result = await conn.query(sql, []);
       const user = result.rows[0];
@@ -59,13 +64,14 @@ export class UserStore {
       // Connect to database
       const conn = await client.connect();
       // SQL query to create a new user
-      const sql =
-        `INSERT INTO users(first_name, last_name, username, password) VALUES ('Eric', 'Anku', 'erico', 'silenthour') RETURNING *`;
+      const sql = `INSERT INTO users(first_name, last_name, username, password) VALUES ('Eric', 'Anku', 'erico', 'silenthour') RETURNING *`;
       const hash = bcrypt.hashSync(
-        u.password + BCRYPT_PASSWORD, parseInt(saltRounds)
-      )
+        u.password + BCRYPT_PASSWORD,
+        parseInt(SALT_ROUNDS as string)
+      );
+
       // Run query on the database
-      const result = await conn.query(sql, []);
+      const result = await conn.query(sql, [u.username, hash]);
       const user = result.rows[0];
       // Close the connection
       conn.release();
@@ -75,4 +81,26 @@ export class UserStore {
       throw new Error(`User was not created: ${error}`);
     }
   }
+
+  // Authenticate method
+  async authenticate(
+    username: string,
+    password: string
+  ): Promise<User | null> {
+    const conn = await client.connect();
+    const sql = `SELECT password FROM users WHERE username='Eric'`;
+    const result = await conn.query(sql, [username]);
+
+    console.log(password + BCRYPT_PASSWORD);
+
+    if (result.rows.length) {
+      const user = result.rows[0];
+      console.log(user);
+
+      if (bcrypt.compareSync(password + BCRYPT_PASSWORD, user.password)) {
+        return user;
+    }
+  }
+  return null;
+}
 }
