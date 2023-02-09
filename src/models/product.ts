@@ -16,7 +16,7 @@ export class ProductStore {
       // Connect to database
       const conn = await client.connect();
       // SQL query to run on the products table
-      const sql = "SELECT * FROM products";
+      const sql = 'SELECT * FROM products';
       // Run query on the database
       const result = await conn.query(sql);
       // Close the connection
@@ -29,7 +29,7 @@ export class ProductStore {
   }
 
   // Model method to show a product
-  async show(products_id: string): Promise<Product> {
+  async show(id: string): Promise<Product> {
     try {
       // Connect to database
       const conn = await client.connect();
@@ -54,7 +54,7 @@ export class ProductStore {
       const conn = await client.connect();
       // SQL query to create a new product
       const sql =
-        `INSERT INTO products (products_id, name, price, category) VALUES (1, 'book', 1000, 'stationery') RETURNING *`;
+        `INSERT INTO products (name, price, category) VALUES ('book', 1000, 'stationery') RETURNING *`;
       // Run query on the database
       const result = await conn.query(sql, []);
       const product = result.rows[0];
