@@ -29,12 +29,12 @@ export class ProductStore {
   }
 
   // Model method to show a product
-  async show(id: string): Promise<Product> {
+  async show(): Promise<Product> {
     try {
       // Connect to database
       const conn = await client.connect();
       // SQL query to show a particular product
-      const sql = 'SELECT * FROM products WHERE products_id = products_id';
+      const sql = `SELECT * FROM products WHERE products_id = products_id`;
       // Run query on the database
       const result = await conn.query(sql, []);
       const product = result.rows[0];
