@@ -3,7 +3,7 @@ import client from "../database";
 // Create a type for the rows in the orders table
 export type Order = {
   order_id: number;
-  products_id: number;
+  product_id: number;
   user_id: number;
   status: string;
 };
