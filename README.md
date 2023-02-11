@@ -15,7 +15,7 @@
 
 ### Products
 
-A SHOW route: 'blogs/:id' [GET] 
+A SHOW route: 'blogs/:id' [GET]
 
 ### Users
 
@@ -24,4 +24,3 @@ A SHOW route: 'blogs/:id' [GET]
 ## Database tables
 
 Table: Books (id:varchar, title:varchar, author:varchar, published_year:varchar, publisher_id:string[foreign key to publishers table], pages:number)
-
