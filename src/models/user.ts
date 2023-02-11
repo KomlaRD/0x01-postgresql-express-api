@@ -71,7 +71,7 @@ export class UserStore {
       );
 
       // Run query on the database
-      const result = await conn.query(sql, [u.username, hash]);
+      const result = await conn.query(sql, []);
       const user = result.rows[0];
       // Close the connection
       conn.release();
