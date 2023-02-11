@@ -1,0 +1,49 @@
+openapi: '3.0.2'
+info:
+  title: 'Store Backend API'
+  version: '1.0'
+servers:
+  - url: localhost:3000
+paths:
+  /products:
+    get:
+      summary: 'Get all products from the store database'
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: 'Create a new product'
+      responses:
+        '201':
+          description: Successful operation
+  /products/{id}:
+    get:
+      summary: 'Get a particular products from the store database'
+      responses:
+        '200':
+          description: OK
+  /users:
+    get:
+      summary: 'Get all users from the store database'
+      responses:
+       '200':
+        description: OK
+    post:
+      summary: 'Create a new user'
+      responses:
+       '201':
+        description: Successful operation
+  /users/{id}:
+    get:
+      summary: 'Get a particular user from the database'
+      responses:
+        '200':
+          description: OK
+  /orders/{id}:
+    get:
+      summary: 'Get an order by user id'
+      responses:
+        '200':
+          description: OK
+
+    
