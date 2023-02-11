@@ -48,7 +48,7 @@ export class ProductStore {
   }
 
   // Model method to create a new product
-  async create(p: Product): Promise<Product> {
+  async create(): Promise<Product> {
     try {
       // Connect to database
       const conn = await client.connect();
