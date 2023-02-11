@@ -22,7 +22,8 @@ app.use(cors());
 app.use("/api-docs", swagger_ui.serve, swagger_ui.setup(doc));
 
 app.get('/', function (req: Request, res: Response) {
-    res.send('Welcome to my store backend')
+    res.send(`Welcome to my store backend.
+    Visit http://localhost:3000/api-docs for more information on the API endpoints`)
 })
 
 // Product routes
