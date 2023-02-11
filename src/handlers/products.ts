@@ -1,4 +1,4 @@
-import express, {Request, Response} from "express";
+import express from "express";
 import { Product, ProductStore } from "../models/product";
 import verifyAuthToken from "../middleware/authenticate";
 
@@ -25,7 +25,7 @@ const create = async (req: express.Request, res: express.Response) => {
             price: req.body.price,
             category: req.body.category
         }
-        const newProduct = await store.create(products);
+        const newProduct = await store.create();
         res.json(newProduct);
     } catch (err) {
         res.status(400);
