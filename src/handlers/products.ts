@@ -12,7 +12,7 @@ const index = async (req: express.Request, res: express.Response) => {
 
 // Show route
 const show = async (req: express.Request, res: express.Response) => {
-    const products = await store.show(req.params.products_id);
+    const products = await store.show();
     res.json(products);
 };
 
