@@ -35,6 +35,20 @@ describe("ProductStore", () => {
       { products_id: 19, name: "book", price: "1000", category: "stationery" },
       { products_id: 20, name: "book", price: "1000", category: "stationery" },
       { products_id: 21, name: "book", price: "1000", category: "stationery" },
+      { products_id: 22, name: "book", price: "1000", category: "stationery" },
+      { products_id: 23, name: "book", price: "1000", category: "stationery" },
+      { products_id: 24, name: "book", price: "1000", category: "stationery" },
+      { products_id: 25, name: "book", price: "1000", category: "stationery" },
+      { products_id: 26, name: "book", price: "1000", category: "stationery" },
+      { products_id: 27, name: "book", price: "1000", category: "stationery" },
+      { products_id: 28, name: "book", price: "1000", category: "stationery" },
+      { products_id: 29, name: "book", price: "1000", category: "stationery" },
+      { products_id: 30, name: "book", price: "1000", category: "stationery" },
+      { products_id: 31, name: "book", price: "1000", category: "stationery" },
+      { products_id: 32, name: "book", price: "1000", category: "stationery" },
+      { products_id: 33, name: "book", price: "1000", category: "stationery" },
+      { products_id: 34, name: "book", price: "1000", category: "stationery" },
+      { products_id: 35, name: "book", price: "1000", category: "stationery" },
     ]);
   });
 
@@ -63,7 +77,7 @@ describe("ProductStore", () => {
   it("create method should successfull add a new product to store when authenticated", async () => {
     const result = await store.create();
     expect(result).toEqual(
-      { products_id: 7, name: 'book', price: '1000', category: 'stationery' },
+      { products_id: 36, name: 'book', price: '1000', category: 'stationery' },
     );
   });
 });
