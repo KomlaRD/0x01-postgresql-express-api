@@ -5,6 +5,7 @@ import user_routes from './handlers/users'
 import order_routes from './handlers/orders'
 import swagger_ui from "swagger-ui-express";
 import YAML from 'yamljs'
+import cors from "cors";
 
 const app: express.Application = express()
 const address: string = "0.0.0.0:3000"
@@ -13,6 +14,9 @@ const address: string = "0.0.0.0:3000"
 const doc = YAML.load('src/api_docs.yml');
 
 app.use(bodyParser.json())
+
+// Add cors 
+app.use(cors());
 
 // Use the api document 
 app.use("/api-docs", swagger_ui.serve, swagger_ui.setup(doc));
