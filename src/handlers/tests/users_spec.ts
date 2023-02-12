@@ -20,6 +20,6 @@ describe("Test endpoint responses", () => {
 
   it("creates a new user if auntheticated", async () => {
     const response = await request.post("/users");
-    expect(response.status).toBe(401);
+    expect(response.status).toBe(200);
   });
 });
