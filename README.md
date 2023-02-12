@@ -29,6 +29,11 @@
 
 - A SHOW route: 'orders/:id' [GET]
 
+## Database setup
+
+- CREATE DATABASE store
+- CREATE DATABASE store test [testing]
+
 ## Database tables
 
 - Table: products (products_id SERIAL PRIMARY KEY, name VARCHAR(100), price DECIMAL, category VARCHAR(150));
@@ -37,3 +42,6 @@
 
 - Table: orders (order_id SERIAL PRIMARY KEY, status VARCHAR(20), product_id INTEGER REFERENCES products(products_id),
 user_id INTEGER REFERENCES users(user_id));
+
+## ENV variables
+
