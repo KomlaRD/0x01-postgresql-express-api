@@ -31,8 +31,14 @@
 
 ## Database setup
 
-- CREATE DATABASE store
-- CREATE DATABASE store test [testing]
+- CREATE DATABASE store;
+- CREATE DATABASE store_test; [testing]
+
+### User
+
+- CREATE USER postgres WITH PASSWORD "passwordtrial";
+- GRANT ALL PRIVILEGES ON DATABASE store TO postgres;
+- GRANT ALL PRIVILEGES ON DATABASE store_test TO postgres;
 
 ## Database tables
 
@@ -45,3 +51,12 @@ user_id INTEGER REFERENCES users(user_id));
 
 ## ENV variables
 
+- POSTGRES_HOST
+- POSTGRES_DB
+- POSTGRES_TEST_DB
+- POSTGRES_USER
+- POSTGRES_PASSWORD
+- ENV
+- BCRYPT_PASSWORD
+- SALT_ROUNDS
+- TOKEN_SECRET
