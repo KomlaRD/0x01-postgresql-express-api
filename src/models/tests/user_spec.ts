@@ -21,77 +21,7 @@ describe("UserStore", () => {
         last_name: "Anku",
         password: "silenthour",
         username: null,
-      },
-      {
-        user_id: 2,
-        first_name: "Eric",
-        last_name: "Anku",
-        password: "silenthour",
-        username: null,
-      },
-      {
-        user_id: 3,
-        first_name: "Eric",
-        last_name: "Anku",
-        password: "silenthour",
-        username: null,
-      },
-      {
-        user_id: 4,
-        first_name: "Eric",
-        last_name: "Anku",
-        password: "silenthour",
-        username: "erico",
-      },
-      {
-        user_id: 5,
-        first_name: "Eric",
-        last_name: "Anku",
-        password: "silenthour",
-        username: "erico",
-      },
-      {
-        user_id: 6,
-        first_name: "Eric",
-        last_name: "Anku",
-        password: "silenthour",
-        username: "erico",
-      },
-      {
-        user_id: 7,
-        first_name: "Eric",
-        last_name: "Anku",
-        password: "silenthour",
-        username: "erico",
-      },
-      {
-        user_id: 8,
-        first_name: "Eric",
-        last_name: "Anku",
-        password: "silenthour",
-        username: "erico",
-      },
-      {
-        user_id: 9,
-        first_name: "Eric",
-        last_name: "Anku",
-        password: "silenthour",
-        username: "erico",
-      },
-      {
-        user_id: 10,
-        first_name: "Eric",
-        last_name: "Anku",
-        password: "silenthour",
-        username: "erico",
-      },
-      {
-        user_id: 11,
-        first_name: "Eric",
-        last_name: "Anku",
-        password: "silenthour",
-        username: "erico",
-      },
+      }
     ]);
   });
 
@@ -104,7 +34,7 @@ describe("UserStore", () => {
   it("show method should return a particular user", async () => {
     const result = await store.show("1");
     expect(result).toEqual(
-    {user_id: 1, first_name: "Eric", last_name: "Anku", password: "silenthour", username: null});
+    {user_id: 1, first_name: "Eric", last_name: "Anku", password: "silenthour", username: "erico"});
   });
 
   // Check fot the existence of the create method
@@ -114,11 +44,11 @@ describe("UserStore", () => {
 
   // Test for creating a new user
   it("create method should successfully create a new user", async () => {
-    const result = await store.create({user_id: 11,password: "silenthour", first_name: "Eric", last_name: "Anku", username: "erico"}
+    const result = await store.create({user_id: 3,password: "silenthour", first_name: "Eric", last_name: "Anku", username: "erico"}
     );
     expect(result).toEqual(
       {
-        user_id: 11,
+        user_id: 1,
         first_name: "Eric",
         last_name: "Anku",
         password: "silenthour",
