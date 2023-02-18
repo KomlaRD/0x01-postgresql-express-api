@@ -6,6 +6,9 @@ const store = new UserStore();
 
 // Suite test
 describe("UserStore", () => {
+  beforeAll(() => {
+    console.log("UserStore created");
+  });
   // Check fot the existence of the index method
   it("should have an index method", () => {
     expect(store.index).toBeDefined();
@@ -20,7 +23,7 @@ describe("UserStore", () => {
         first_name: "Eric",
         last_name: "Anku",
         password: "silenthour",
-        username: null,
+        username: 'erico',
       }
     ]);
   });
@@ -44,7 +47,7 @@ describe("UserStore", () => {
 
   // Test for creating a new user
   it("create method should successfully create a new user", async () => {
-    const result = await store.create({user_id: 3,password: "silenthour", first_name: "Eric", last_name: "Anku", username: "erico"}
+    const result = await store.create({user_id: 1,password: "silenthour", first_name: "Eric", last_name: "Anku", username: "erico"}
     );
     expect(result).toEqual(
       {
