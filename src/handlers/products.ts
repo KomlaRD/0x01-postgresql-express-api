@@ -6,15 +6,23 @@ const store = new ProductStore();
 
 // Index route
 const index = async (req: express.Request, res: express.Response) => {
-    const products = await store.index();
-    res.json(products);
+    try {
+        const products = await store.index();
+        res.json(products);
+    } catch (err) {
+        throw new Error(`Unable to retrieve products: ${err}`);
 };
+}
 
 // Show route
 const show = async (req: express.Request, res: express.Response) => {
-    const products = await store.show();
-    res.json(products);
+    try {
+        const products = await store.show();
+        res.json(products);
+    } catch (err) {
+        throw new Error(`Unable to retrieve specified product: ${err}`);
 };
+}
 
 // Create route
 const create = async (req: express.Request, res: express.Response) => {
