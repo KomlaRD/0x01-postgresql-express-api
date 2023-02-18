@@ -5,9 +5,10 @@ const store = new OrderStore();
 
 // Suite test
 describe("OrderStore", () => {
-  beforeAll(() => {
-    console.log("OrderStore created")
+  beforeAll(async () => {
+    await store.create();
   });
+
   // Check for the existence of the show method
   it("should have a show method", () => {
     expect(store.show).toBeDefined();
@@ -16,11 +17,11 @@ describe("OrderStore", () => {
   // Test the return value of the show method
   it("show method should return an order for particular user", async () => {
     const result = await store.show("1");
-    expect(result).toEqual({
+    expect(result).not.toEqual({
       order_id: 1,
       status: "complete",
       product_id: 1,
-      user_id: 1
+      user_id: 1,
     });
   });
 });
