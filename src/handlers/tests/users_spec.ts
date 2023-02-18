@@ -10,12 +10,12 @@ const request = supertest(app.use(user_routes));
 describe("Test endpoint responses", () => {
   it("gets all users if aunthenticated", async () => {
     const response = await request.get("/users");
-    expect(response.status).toBe(401);
+    expect(response.status).toBe(401); // response is 200 when user is authenticated
   });
 
   it("gets a particular user if auntheticated", async () => {
     const response: any = await request.get("/users/:id");
-    expect(response.status).toBe(401);
+    expect(response.status).toBe(401); // response is 200 when user is authenticated
   });
 
   it("creates a new user if auntheticated", async () => {
