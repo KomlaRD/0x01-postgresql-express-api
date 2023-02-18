@@ -5,6 +5,9 @@ const store = new OrderStore();
 
 // Suite test
 describe("OrderStore", () => {
+  beforeAll(() => {
+    console.log("OrderStore created")
+  });
   // Check for the existence of the show method
   it("should have a show method", () => {
     expect(store.show).toBeDefined();
