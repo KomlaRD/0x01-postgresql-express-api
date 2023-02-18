@@ -34,6 +34,10 @@
 - CREATE DATABASE store;
 - CREATE DATABASE store_test; [testing]
 
+## Database port number
+
+- PORT: 5432
+
 ### User
 
 - CREATE USER postgres WITH PASSWORD "passwordtrial";
