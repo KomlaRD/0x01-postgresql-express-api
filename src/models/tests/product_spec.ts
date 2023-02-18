@@ -5,6 +5,9 @@ const store = new ProductStore();
 
 // Suite test
 describe("ProductStore", () => {
+  beforeAll(() => {
+    console.log("ProductStore created");
+  });
   // Check fot the existence of the index method
   it("should have an index method", () => {
     expect(store.index).toBeDefined();
