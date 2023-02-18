@@ -1,4 +1,3 @@
-import verifyAuthToken from "../../middleware/authenticate";
 import { User, UserStore } from "../user";
 
 // Instantiate a new user store
@@ -6,8 +5,14 @@ const store = new UserStore();
 
 // Suite test
 describe("UserStore", () => {
-  beforeAll(() => {
-    console.log("UserStore created");
+  beforeAll(async() => {
+    const result = await store.create({
+      user_id: 1,
+      password: "silenthour",
+      first_name: "Eric",
+      last_name: "Anku",
+      username: "erico",
+    });
   });
   // Check fot the existence of the index method
   it("should have an index method", () => {
@@ -23,8 +28,15 @@ describe("UserStore", () => {
         first_name: "Eric",
         last_name: "Anku",
         password: "silenthour",
-        username: 'erico',
-      }
+        username: "erico",
+      },
+      {
+        user_id: 2,
+        first_name: "Eric",
+        last_name: "Anku",
+        password: "silenthour",
+        username: "erico",
+      },
     ]);
   });
 
@@ -47,11 +59,11 @@ describe("UserStore", () => {
 
   // Test for creating a new user
   it("create method should successfully create a new user", async () => {
-    const result = await store.create({user_id: 1,password: "silenthour", first_name: "Eric", last_name: "Anku", username: "erico"}
+    const result = await store.create({user_id: 3, password: "silenthour", first_name: "Eric", last_name: "Anku", username: "erico"}
     );
     expect(result).toEqual(
       {
-        user_id: 1,
+        user_id: 3,
         first_name: "Eric",
         last_name: "Anku",
         password: "silenthour",
