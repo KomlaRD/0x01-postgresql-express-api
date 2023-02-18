@@ -19,6 +19,6 @@ describe("Test endpoint responses", () => {
 
   it("posts a new product", async () => {
     const response = await request.post("/products")
-    expect(response.status).toBe(401);
+    expect(response.status).toBe(401); // response is 200 when authenticated
   });
 });
