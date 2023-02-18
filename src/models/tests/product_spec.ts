@@ -5,8 +5,8 @@ const store = new ProductStore();
 
 // Suite test
 describe("ProductStore", () => {
-  beforeAll(() => {
-    console.log("ProductStore created");
+  beforeAll(async() => {
+      const result = await store.create();
   });
   // Check fot the existence of the index method
   it("should have an index method", () => {
@@ -17,7 +17,8 @@ describe("ProductStore", () => {
   it("index method should return a list of products", async () => {
     const result = await store.index();
     expect(result).toEqual([
-      { products_id: 1, name: "book", price: "1000", category: "stationery" }
+      { products_id: 1, name: "book", price: "1000", category: "stationery" },
+      { products_id: 2, name: "book", price: "1000", category: "stationery" }
     ]);
   });
 
@@ -46,7 +47,7 @@ describe("ProductStore", () => {
   it("create method should successfull add a new product to store when authenticated", async () => {
     const result = await store.create();
     expect(result).toEqual(
-      { products_id: 1, name: 'book', price: '1000', category: 'stationery' },
+      { products_id: 2, name: 'book', price: '1000', category: 'stationery' },
     );
   });
 });
