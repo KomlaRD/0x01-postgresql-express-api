@@ -7,14 +7,22 @@ const store = new UserStore();
 
 // Index route
 const index = async (req: express.Request, res: express.Response) => {
-    const users = await store.index();
-    res.json(users);
+    try {
+        const users = await store.index();
+        res.json(users);
+    } catch (err) {
+        throw new Error(`Unable to retrieve users: ${err}`);
 };
+}
 
 // Show route
 const show = async (req: express.Request, res: express.Response) => {
-    const user = await store.show(req.params.id);
-    res.json(user);
+    try {
+        const user = await store.show(req.params.id);
+        res.json(user);
+    } catch (err) {
+        throw new Error(`Unable to show user: ${err}`);
+    }  
 };
 
 // Create route
