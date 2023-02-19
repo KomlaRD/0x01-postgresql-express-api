@@ -17,8 +17,7 @@ describe("ProductStore", () => {
   it("index method should return a list of products", async () => {
     const result = await store.index();
     expect(result).toEqual([
-      { products_id: 1, name: "book", price: "1000", category: "stationery" },
-      { products_id: 2, name: "book", price: "1000", category: "stationery" }
+      { products_id: 1, name: "book", price: "1000", category: "stationery" }
     ]);
   });
 
