@@ -66,11 +66,11 @@ describe("UserStore", () => {
 
   // Test for creating a new user
   it("create method should successfully create a new user", async () => {
-    const result = await store.create({user_id: 3, password: "silenthour", first_name: "Eric", last_name: "Anku", username: "erico"}
+    const result = await store.create({user_id: 2, password: "silenthour", first_name: "Eric", last_name: "Anku", username: "erico"}
     );
     expect(result).toEqual(
       {
-        user_id: 3,
+        user_id: 2,
         first_name: "Eric",
         last_name: "Anku",
         password: "silenthour",
