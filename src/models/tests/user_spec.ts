@@ -37,6 +37,13 @@ describe("UserStore", () => {
         password: "silenthour",
         username: "erico",
       },
+      {
+        user_id: 3,
+        first_name: "Eric",
+        last_name: "Anku",
+        password: "silenthour",
+        username: "erico",
+      },
     ]);
   });
 
